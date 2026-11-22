@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reputation Analytics Portfolio</title>
+<meta name="description" content="Reputation Signals: four briefings built from public data (airline reputation risk, the Spirit Airlines collapse, Cava vs Dutch Bros share of voice, and a Southwest issues map), each ending in prioritised actions.">
+<!--HEAD-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reputation Signals">
+<meta property="og:title" content="Reputation Analytics Portfolio · Reputation Signals">
+<meta property="og:description" content="Reputation Signals: four briefings built from public data (airline reputation risk, the Spirit Airlines collapse, Cava vs Dutch Bros share of voice, and a Southwest issues map), each ending in prioritised actions.">
+<meta property="og:image" content="https://grodgers55.github.io/reputation-signals/assets/og.png">
+<link rel="canonical" href="https://grodgers55.github.io/reputation-signals/">
+<meta property="og:url" content="https://grodgers55.github.io/reputation-signals/">
+<meta name="twitter:card" content="summary_large_image">
+<!--/HEAD-->
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .glance td { vertical-align: middle; }
+  .glance td.brand-cell { font-weight: 600; white-space: nowrap; }
+  .glance td.act a { font-size: 0.86rem; }
+  @media (max-width: 760px) { .glance .hide-sm { display: none; } }
+  .briefings { list-style: none; padding: 0; margin: 0; border-top: 2px solid var(--rule); }
+  .briefings li { border-bottom: 1px solid var(--grid); }
+  .briefings a { display: grid; grid-template-columns: 70px minmax(0, 1.5fr) minmax(0, 1fr) 24px; gap: 8px 28px; padding: 24px 0; color: var(--text-1); text-decoration: none; align-items: start; }
+  .briefings a:hover h3 { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  .briefings .no { font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: var(--text-3); }
+  .briefings h3 { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; line-height: 1.25; margin: 4px 0 6px; }
+  .briefings .what { color: var(--text-2); font-size: 0.92rem; margin: 0; }
+  .briefings .stat { font-family: var(--serif); font-size: 2rem; line-height: 1.1; }
+  .briefings .stat-note { font-size: 0.85rem; color: var(--text-2); margin-top: 4px; }
+  .briefings .go { font-size: 1.3rem; color: var(--text-3); padding-top: 18px; }
+  @media (max-width: 760px) { .briefings a { grid-template-columns: 48px minmax(0, 1fr); } .briefings .no { font-size: 1.9rem; } .briefings .go { display: none; } .briefings .side { grid-column: 2; } }
+  .method h3 { margin: 22px 0 6px; }
+  .method p, .method li { color: var(--text-2); font-size: 0.93rem; }
+  .method ul { padding-left: 20px; margin: 0 0 10px; }
+  .method li { margin-bottom: 6px; }
+  .method strong { color: var(--text-1); }
+  .method-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 44px; }
+  @media (max-width: 860px) { .method-grid { grid-template-columns: 1fr; } }
+  .pipeline { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin: 10px 0 8px; }
+  @media (max-width: 860px) { .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .step { border-top: 3px solid var(--text-1); padding: 10px 16px 12px 0; margin-right: 16px; font-size: 0.85rem; color: var(--text-2); }
+  .step:last-child { border-top-color: var(--accent); }
+  .step strong { display: block; color: var(--text-1); font-family: var(--serif); font-size: 1.1rem; font-weight: 500; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main class="wrap">
+  <section class="page-head">
+    <div class="kicker"><span>Reputation Signals</span><span id="k-window"></span><span class="poc">Proof of concept · public data</span></div>
+    <h1>Reputation intelligence from public data, turned into advice a client can act on.</h1>
+    <p class="lede">Five brands, twelve months of news and search data, and one question for each: what should the client do next? Each briefing leads with the recommendation, ranks the actions by priority, and shows the evidence underneath.</p>
+    <p class="byline">Analysis and build by Garron Rodgers, PMP · Last refreshed <span id="built"></span></p>
+  </section>
+
+  <section class="tiles" id="tiles" aria-label="Scale of the analysis"></section>
+
+  <section class="card" aria-labelledby="g-h" style="border-top:2px solid var(--rule)">
+    <div class="card-head">
+      <div><span class="exhibit-no">Exhibit 0.1 · Risk at a glance</span>
+        <h2 id="g-h">Frontier needs watching. Southwest and the restaurant brands are calm.</h2>
+        <p class="sub">The latest weekly Reputation Risk Index for each brand, its last 12 months, and the first action we would take. Watch and Alert thresholds come from the brands' own history (see methodology).</p></div>
+    </div>
+    <div id="glance"></div>
+    <p class="source" id="glance-src"></p>
+  </section>
+
+  <div class="part"><span class="lbl">The briefings</span><h2>Four client briefings</h2></div>
+  <ol class="briefings" id="briefings"></ol>
+
+  <section class="method" id="methodology" aria-labelledby="m-h">
+    <div class="part" style="margin-top:56px"><span class="lbl">Appendix</span><h2 id="m-h">Methodology &amp; limitations</h2></div>
+    <p style="margin-top:12px;max-width:75ch">This is a <strong>proof of concept built entirely from public data</strong>, not a client deliverable. It costs nothing to run and is designed to be refreshed monthly. Recommendations are illustrative: they show how the evidence would be turned into advice.</p>
+
+    <div class="pipeline" aria-label="How it was built">
+      <div class="step"><strong>1 · Collect</strong>GDELT news records via Google BigQuery; Google Trends search interest.</div>
+      <div class="step"><strong>2 · Clean</strong>Match brands, remove lookalikes, collapse syndicated copies, normalise for news volume.</div>
+      <div class="step"><strong>3 · Analyse</strong>Spikes, tone, issues, outlets and voices; a blind headline review checks the automation.</div>
+      <div class="step"><strong>4 · Score</strong>A weekly Reputation Risk Index and an issue priority score.</div>
+      <div class="step"><strong>5 · Recommend</strong>Prioritised actions with an owner, timing and the evidence behind them.</div>
+    </div>
+
+    <div class="method-grid">
+      <div>
+        <h3>Data sources</h3>
+        <ul>
+          <li><strong>News:</strong> the GDELT Global Knowledge Graph, queried on Google BigQuery. One record per online news article: date, outlet, URL, headline, tone, and the organisations and people named. English-language originals only.</li>
+          <li><strong>Search:</strong> Google Trends, US, weekly, using Google's disambiguated <em>topics</em> (e.g. "Cava Group — restaurant chain") rather than raw words.</li>
+          <li><strong>Headline review:</strong> a stratified random sample of 500 headlines (100 per brand), reviewed blind by Claude for relevance, sentiment toward the brand (−2 to +2) and issues.</li>
+        </ul>
+
+        <h3>Definitions</h3>
+        <ul>
+          <li><strong>About the brand:</strong> the brand is in the headline, or named 3+ times in the article. This removes roundups and passing mentions; only 22–46% of airline mentions qualify.</li>
+          <li><strong>Syndication:</strong> the same headline on the same outlet on the same day counts once. Collapsing iHeartMedia's copies across local station sites removed 23% of records.</li>
+          <li><strong>Per 100k:</strong> brand articles per 100,000 English articles GDELT processed in the period, so busy and quiet news weeks are comparable.</li>
+          <li><strong>Tone:</strong> GDELT's dictionary-based score of positive vs negative words. "Negative" means a tone below −2.</li>
+          <li><strong>Issues:</strong> 14 categories assigned by transparent keyword rules on headlines (an article can have several). Outlet types come from domain lists and broadcast call signs.</li>
+          <li><strong>Search interest:</strong> relative (0–100 within one request). Brands are compared only when they were pulled together.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The scoring layer</h3>
+        <ul>
+          <li><strong>Reputation Risk Index (0–100, weekly):</strong> 50% attention (coverage vs the brand's previous 8 weeks, log scale, 16× normal = maximum), 25% negativity (share of articles with tone below −2), 25% severity (the most serious issue in each headline, averaged). It uses only information available at the time, so it can be backtested.</li>
+          <li><strong>Thresholds:</strong> <span id="th-text"></span></li>
+          <li><strong>Spirit backtest:</strong> <span id="bt-text"></span></li>
+          <li><strong>Issue priority score:</strong> reach × (negativity + severity) ÷ 2, scaled so the top issue = 100. Severity weights (0–3) are an analyst's judgement, published so a client can change them.</li>
+          <li><strong>Recommendations</strong> are our advice. Every number quoted beside them is computed from the data files that ship with this site.</li>
+        </ul>
+
+        <h3>What the headline review showed</h3>
+        <ul id="review-list"></ul>
+      </div>
+    </div>
+
+    <h3>Limitations</h3>
+    <ul style="max-width:90ch">
+      <li><strong>Headlines, not full text.</strong> Issue tags and sentiment are based on headlines and named entities, not article bodies.</li>
+      <li><strong>Coverage is broad but not complete.</strong> GDELT leans towards online news and local TV and radio sites; paywalled national outlets are under-represented. Read volumes as relative (brand vs brand, month vs month), not as counts of all coverage.</li>
+      <li><strong>Tone understates bad news.</strong> Tone lines show direction of travel, not the size of the reputational damage.</li>
+      <li><strong>The risk index is a triage tool.</strong> It flags where to look, not how bad it is: a big positive launch in an incident week can reach Watch. Quiet weeks with fewer than 5 articles score as normal, even before a crisis.</li>
+      <li><strong>Restaurant news is mostly financial press,</strong> so for Cava and Dutch Bros, news share of voice largely reflects investor attention; search is the better consumer signal.</li>
+      <li><strong>Small samples where noted.</strong> The headline review is one model's second opinion on 500 headlines, not human-coded ground truth. Some sub-results rest on 20–30 headlines and are labelled directional.</li>
+      <li><strong>No social media.</strong> Reddit and other social platforms were out of scope for this proof of concept.</li>
+      <li><strong>Roles</strong> of named people are shown only where verified; other names are as GDELT extracted them.</li>
+      <li><strong>November 2026 is a partial month.</strong></li>
+    </ul>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+
+<script src="data/meta.js"></script>
+<script src="data/risk.js"></script>
+<script src="data/tracker.js"></script>
+<script src="data/sov.js"></script>
+<script src="assets/common.js"></script>
+<script>
+(function () {
+  const M = window.META, R = window.RISK, TH = R.meta.thresholds, $ = id => document.getElementById(id);
+  const ISSUE_MIX = Object.assign({}, window.TRACKER.issue_mix, window.SOV.issue_mix);
+  // No brand colours here: the airline and restaurant pages reuse the same palette slots, so colour would mislead
+  const BRANDS = [
+    { id: "frontier", name: "Frontier Airlines", color: "s2", href: "tracker.html", action: "Keep an incident-response kit ready; build a product story around the first-class launch." },
+    { id: "southwest", name: "Southwest Airlines", color: "s1", href: "issues.html", action: "Launch policy and loyalty changes with a passenger-benefit story." },
+    { id: "spirit", name: "Spirit Airlines", color: "s3", href: "crisis.html", action: "Case study: prepare on the Alert, and plan the aftermath before the announcement.", ceased: true },
+    { id: "cava", name: "Cava", color: "s1", href: "share-of-voice.html", action: "Turn openings and menu launches into local consumer news." },
+    { id: "dutch_bros", name: "Dutch Bros", color: "s2", href: "share-of-voice.html", action: "Defend the local-opening lead; keep a light reputation watch." },
+  ];
+  const short = s => s.replace(" & stock", "").replace(" & incidents", "").replace(", routes & growth", " & growth").replace(" experience & policies", " & policies");
+
+  function glance() {
+    Dash.table($("glance"), ["Brand", "Risk now", "Last 12 months", "Alert weeks", "Peak", "Biggest issue", "First action"],
+      BRANDS.map(b => {
+        const rb = R.brands[b.id], latest = rb.latest, lvl = Dash.riskLevel(latest.rri, TH);
+        const now = b.ceased ? Dash.chip("ceased", "Ceased 2 May") : Dash.chip(lvl, `${lvl} · ${Math.round(latest.rri)}`);
+        const top = ISSUE_MIX[b.id][0];
+        return [b.name, now,
+          Dash.sparkline(rb.weekly.map(r => r.rri), TH, Dash.tok("text-1")),
+          rb.weeks_alert, `<span style="white-space:nowrap">${Math.round(rb.peak.rri)} <span class="muted small">${Dash.fmtDay(rb.peak.week)}</span></span>`,
+          `${Dash.esc(short(top.issue))} <span class="muted small">${Dash.fmtPct(top.share)}</span>`,
+          `<a href="${b.href}">${Dash.esc(b.action)}</a>`];
+      }), [3]);
+    $("glance").querySelector("table").classList.add("glance");
+    $("glance").querySelectorAll("tbody tr").forEach(tr => { tr.children[0].classList.add("brand-cell"); tr.children[2].classList.add("hide-sm"); tr.children[4].classList.add("hide-sm"); tr.children[6].classList.add("act"); });
+    $("glance").querySelectorAll("thead th").forEach((th, i) => { if (i === 2 || i === 4) th.classList.add("hide-sm"); });
+    $("glance-src").textContent = `Risk now = week ending ${Dash.fmtDate(R.brands.frontier.latest.week)}. Watch ≥ ${Math.round(TH.watch)}, Alert ≥ ${Math.round(TH.alert)}. Sparkline: weekly index with the Watch (dashed) and Alert (solid) lines. Biggest issue = largest share of the brand's coverage.`;
+  }
+
+  function briefings() {
+    const BT = R.backtest;
+    const items = [
+      { no: "01", href: "tracker.html", kicker: "Airline reputation tracker", title: "One bad day defines Frontier. Southwest writes its own headlines.",
+        what: "Weekly risk, coverage, tone and search for Frontier, Spirit and Southwest, with the events that moved each line.",
+        stat: "58%", note: "of Frontier's coverage was safety incidents, and all of its Alert weeks were incidents." },
+      { no: "02", href: "crisis.html", kicker: "Crisis deep dive · Spirit Airlines", title: "The shutdown was the headline. The damage came after.",
+        what: "An early-warning backtest, a four-window response playbook, and the anatomy of the collapse.",
+        stat: `${BT.lead_days_final_run} days`, note: "of warning: the risk index went to Alert before Spirit stopped flying." },
+      { no: "03", href: "share-of-voice.html", kicker: "Share of voice · Cava vs Dutch Bros", title: "Cava's customers are searching. Its news is talking to investors.",
+        what: "A head-to-head positioning scorecard across news, search, themes and tone.",
+        stat: "27% vs 15%", note: "of coverage about new stores: Dutch Bros wins local opening news." },
+      { no: "04", href: "issues.html", kicker: "Issues & influencers · Southwest", title: "Southwest's biggest risks are the ones it controls.",
+        what: "An issue priority matrix and ranked list, plus the outlets and voices behind each issue.",
+        stat: "9% → 39%", note: "negative on policy-change headlines: machine tone vs a headline-by-headline review." },
+    ];
+    $("briefings").innerHTML = items.map(i => `<li><a href="${i.href}">
+      <span class="no">${i.no}</span>
+      <div><span class="lbl">${Dash.esc(i.kicker)}</span><h3>${Dash.esc(i.title)}</h3><p class="what">${Dash.esc(i.what)}</p></div>
+      <div class="side"><div class="stat">${i.stat}</div><div class="stat-note">${Dash.esc(i.note)}</div></div>
+      <span class="go" aria-hidden="true">→</span></a></li>`).join("");
+  }
+
+  function render() {
+    $("k-window").textContent = `${Dash.fmtDate(M.window[0])} – ${Dash.fmtDate(M.window[1])}`;
+    $("built").textContent = Dash.fmtDate(M.built);
+    $("tiles").innerHTML = [
+      [Dash.fmtInt(M.records_clean), "news records analysed", `from ${Dash.fmtInt(M.records_raw)} raw GDELT records after cleaning`],
+      [Dash.fmtInt(M.outlets), "news outlets", "national, local, trade, financial and international"],
+      ["5", "brands", "Frontier, Spirit, Southwest, Cava, Dutch Bros"],
+      [Dash.fmtInt(M.review_n), "headlines reviewed blind", "to check the automated tone and tagging"],
+      ["$0", "data cost", "public sources; refreshable monthly"],
+    ].map(([v, l, n]) => `<div class="tile"><div class="label">${l}</div><div class="value">${v}</div><div class="note">${n}</div></div>`).join("");
+    glance();
+    briefings();
+    $("th-text").textContent = `Watch = ${TH.watch} and Alert = ${TH.alert}: the 90th and 97.5th percentiles of ${TH.brand_weeks} weekly scores for Frontier, Southwest, Cava and Dutch Bros. Spirit was deliberately left out so it could be tested.`;
+    const BT = R.backtest;
+    $("bt-text").textContent = `Spirit reached Alert in the week ending ${Dash.fmtDate(BT.final_alert_run_start)} and stayed there until it stopped flying on ${Dash.fmtDate(BT.shutdown)} (${BT.lead_days_final_run} days). An earlier Alert (week ending ${Dash.fmtDate(BT.first_alert_week)}) came from bankruptcy-exit coverage. In the two weeks before the final Alert, coverage was too thin to score.`;
+    $("review-list").innerHTML = [
+      `<li><strong>The "about" rule is right ${Dash.fmtPct(M.about_precision)} of the time</strong> (92% for Frontier; lowest for Cava, whose name is shared with a wine, Miami-Dade's mayor and a volleyball association).</li>`,
+      `<li><strong>GDELT tone agrees with headline sentiment only ${Dash.fmtPct(M.agreement)} of the time.</strong> It under-reads negative news told in factual language: Spirit headlines were 85% negative by review but 49% by tone.</li>`,
+      `<li><strong>Issue rules</strong> are accurate for financial, loyalty, safety and bankruptcy stories (precision 0.8–0.98). The review exposed weaker rules, e.g. "Dutch Bros <em>Coffee</em>" being tagged as a menu story, which were then fixed.</li>`,
+    ].join("");
+  }
+  Dash.start(render);
+})();
+</script>
+</body>
+</html>

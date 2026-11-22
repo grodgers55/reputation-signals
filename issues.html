@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Southwest Issues Map</title>
+<meta name="description" content="Issues and influencers map for Southwest Airlines, Dec 2025 – Nov 2026: the themes in its news coverage, how negative each is, and the outlets and voices driving them.">
+<!--HEAD-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reputation Signals">
+<meta property="og:title" content="Southwest Issues Map · Reputation Signals">
+<meta property="og:description" content="Issues and influencers map for Southwest Airlines, Dec 2025 – Nov 2026: the themes in its news coverage, how negative each is, and the outlets and voices driving them.">
+<meta property="og:image" content="https://grodgers55.github.io/reputation-signals/assets/og.png">
+<link rel="canonical" href="https://grodgers55.github.io/reputation-signals/issues.html">
+<meta property="og:url" content="https://grodgers55.github.io/reputation-signals/issues.html">
+<meta name="twitter:card" content="summary_large_image">
+<!--/HEAD-->
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .issues-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+  @media (max-width: 860px) { .issues-grid { grid-template-columns: 1fr; } }
+  .issue-list { display: grid; gap: 2px; }
+  .issue-row {
+    display: grid; grid-template-columns: minmax(150px, 1.4fr) minmax(90px, 1fr) 92px 70px; gap: 12px; align-items: center;
+    padding: 10px 10px; border-radius: 8px; border: 1px solid transparent; background: none; text-align: left;
+    font: inherit; color: var(--text-1); cursor: pointer; width: 100%;
+  }
+  .issue-row:hover { background: var(--surface-2); }
+  .issue-row[aria-pressed="true"] { background: var(--surface-2); border-color: var(--callout-border); }
+  .issue-row .name { font-weight: 600; font-size: 0.92rem; }
+  .issue-row .meta { font-size: 0.78rem; color: var(--text-3); }
+  .issue-row .neg { font-size: 0.82rem; color: var(--text-2); font-variant-numeric: tabular-nums; }
+  .issue-row .hbar { display: block; margin-bottom: 3px; }
+  .issue-row .negbar { height: 6px; border-radius: 3px; background: var(--surface-2); margin-top: 4px; overflow: hidden; }
+  .issue-row .negbar span { display: block; height: 100%; background: var(--neg); border-radius: 3px; }
+  .issue-head { display: grid; grid-template-columns: minmax(150px, 1.4fr) minmax(90px, 1fr) 92px 70px; gap: 12px; padding: 0 10px 6px; font-size: 0.75rem; color: var(--text-3); }
+  @media (max-width: 600px) {
+    .issue-row, .issue-head { grid-template-columns: 1fr 72px 56px; }
+    .issue-row .vol, .issue-head .vol { display: none; }
+  }
+  .heat td.cell { text-align: center; font-variant-numeric: tabular-nums; min-width: 44px; border: 2px solid var(--surface); border-radius: 4px; }
+  .heat th.rot { font-size: 0.72rem; white-space: normal; min-width: 60px; vertical-align: bottom; line-height: 1.2; }
+  .detail-title { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .pill { font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--text-2); }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main class="wrap">
+  <section class="page-head">
+    <div class="kicker"><span>Briefing 04</span><span>Issues &amp; influencers</span><span>Southwest Airlines · Dec 2025 – Nov 2026</span><span class="poc">Proof of concept · public data</span></div>
+    <h1>Southwest's biggest risks are the ones it controls.</h1>
+    <p class="lede">Every theme in Southwest's news coverage, scored for how much it matters and ranked into a priority list, with the outlets and voices that drive each one.</p>
+    <div class="page-tools" id="page-tools"></div>
+  </section>
+
+  <section class="brief" aria-label="Summary for the client">
+    <div class="brief-grid">
+      <div>
+        <span class="lbl">What we found</span>
+        <p class="big"><strong>Safety is the top-priority issue</strong>: 16% of coverage, 67% of it negative.</p>
+        <p>Policy changes are the biggest issue (24% of coverage) and land worse than tone scores suggest: 39% negative by headline review, against 9% by GDELT tone. Loyalty coverage is rising fast after the Rapid Rewards overhaul.</p>
+      </div>
+      <div>
+        <span class="lbl">What it means</span>
+        <p>Most of Southwest's exposure is in issues it controls (policies, loyalty) or can prepare for (incidents). That makes it manageable.</p>
+        <p>Local TV and radio carry 41% of Southwest coverage, and CEO Bob Jordan is by far the most-named voice. That is where to respond, and who should do it.</p>
+      </div>
+      <div class="rec">
+        <span class="lbl">What we recommend</span>
+        <p><strong>Act now</strong> on safety response and on how policy changes are explained.</p>
+        <p><strong>Contain</strong> regulation, labour and disruption stories with prepared positions.</p>
+        <p><strong>Get ahead of loyalty:</strong> explain the Rapid Rewards changes before customers do.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tiles" id="tiles" aria-label="Key numbers"></section>
+
+  <section class="actions" aria-labelledby="act-h">
+    <div class="part" style="margin-top:34px"><span class="lbl">Action plan</span><h2 id="act-h">Priority actions for Southwest</h2></div>
+    <div id="actions"></div>
+  </section>
+
+  <div class="part"><span class="lbl">Part I</span><h2>What to act on first</h2></div>
+  <div class="with-note">
+    <section class="card" aria-labelledby="m-h">
+      <div class="card-head">
+        <div><span class="exhibit-no">Exhibit 4.1</span><h2 id="m-h">Read headline by headline, policy changes move into "act now"</h2>
+          <p class="sub">Each issue's reach (share of Southwest coverage) against how negative its coverage is. Numbers match the priority list below; bigger, darker dots are more severe issues. The hollow marker is policy coverage as rated by the headline review.</p></div>
+      </div>
+      <div class="chart tall"><canvas id="m-chart" role="img" aria-label="Issue priority matrix: share of coverage versus share of negative coverage"></canvas></div>
+      <p class="source">GDELT GKG via BigQuery; issues from keyword rules on headlines. Quadrant lines at 10% reach and 30% negative are an analyst's judgement. Hollow marker: headline review of 23 policy headlines (directional).</p>
+    </section>
+    <aside class="margin-note" aria-label="How issues are prioritised">
+      <span class="lbl">Analyst note · how we prioritise</span>
+      <p><strong>Priority score</strong> = reach × (negativity + severity) ÷ 2, scaled so the top issue = 100.</p>
+      <p><strong>Severity</strong> is a stated judgement a client can change: safety and bankruptcy 3; regulation, labour, disruptions and passenger behaviour 2; fares, policies, loyalty and leadership 1; financial, network and marketing 0.</p>
+      <p><strong>Momentum</strong> compares Aug–Nov coverage with the 12-month average: above 1.2× is rising, below 0.8× is easing.</p>
+    </aside>
+  </div>
+
+  <section class="card" aria-labelledby="p-h">
+    <span class="exhibit-no">Exhibit 4.2</span>
+    <h2 id="p-h">The issue priority list</h2>
+    <p class="sub">Every issue with at least 20 articles, ranked by priority score, with a stance and an owner.</p>
+    <div id="prio"></div>
+    <p class="source">Priority, reach, negativity and momentum computed from GDELT GKG articles about Southwest (scripts/13_risk_index.py). Stances and owners are recommendations.</p>
+  </section>
+
+  <div class="deep">
+  <div class="part"><span class="lbl">Part II</span><h2>The issues &amp; influencers map</h2></div>
+  <div class="grid-2 issues-grid">
+    <section class="card" aria-labelledby="c1-h">
+      <span class="exhibit-no">Exhibit 4.3</span>
+      <h2 id="c1-h">Issue catalogue: select an issue to see who drives it</h2>
+      <p class="sub">Select an issue to see who drives it. Bars show the share of Southwest coverage; red shows the share of clearly negative articles (GDELT tone below −2).</p>
+      <div class="issue-head"><span>Issue</span><span class="vol">Share of coverage</span><span>Negative</span><span>Peak</span></div>
+      <div class="issue-list" id="issue-list" role="group" aria-label="Issues"></div>
+      <p class="source">Issues assigned by keyword rules on headlines; one article can carry several. 85% of headlines match at least one issue.</p>
+    </section>
+
+    <section class="card" aria-labelledby="d-h" id="detail">
+      <div class="detail-title"><h2 id="d-h"></h2><span class="pill" id="d-pill"></span></div>
+      <p class="sub" id="d-sub"></p>
+      <div class="chart short" style="height:170px"><canvas id="d-chart" role="img" aria-label="Monthly articles for the selected issue"></canvas></div>
+      <h3 style="margin:14px 0 6px">Outlet mix</h3>
+      <div id="d-mix"></div>
+      <div class="grid-2" style="gap:12px;margin-top:12px">
+        <div><h3 style="margin-bottom:4px">Top outlets</h3><ul class="plain" id="d-outlets"></ul></div>
+        <div><h3 style="margin-bottom:4px">Voices</h3><ul class="plain" id="d-voices"></ul></div>
+      </div>
+      <h3 style="margin:14px 0 4px">Most widely carried headlines</h3>
+      <ul class="plain" id="d-heads"></ul>
+      <p class="source" id="d-quality"></p>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="c2-h">
+    <div class="card-head">
+      <div><span class="exhibit-no">Exhibit 4.4</span><h2 id="c2-h">A handful of outlets drive each issue</h2>
+        <p class="sub">Southwest's 15 most active outlets × issues. Darker = more articles on that issue.</p></div>
+    </div>
+    <div id="heat"></div>
+    <p class="source">Counts are articles "about" Southwest with syndicated copies collapsed. Automated stock sites (themarketsdaily, tickerreport, dailypolitical) publish templated stock items and drive the financial narrative almost alone.</p>
+  </section>
+
+  <div class="grid-2">
+    <section class="card" aria-labelledby="c3-h">
+      <span class="exhibit-no">Exhibit 4.5</span>
+      <h2 id="c3-h">The CEO is the voice of the brand</h2>
+      <p class="sub">People most often named in Southwest coverage (number of articles).</p>
+      <ul class="plain" id="voices"></ul>
+      <p class="source">Names extracted by GDELT, with photo credits, places and company boilerplate removed. Roles are shown only where verified.</p>
+    </section>
+    <section class="card" aria-labelledby="c4-h">
+      <div class="card-head">
+        <div><span class="exhibit-no">Exhibit 4.6</span><h2 id="c4-h">Policy changes: tone vs reality</h2><p class="sub">Onboard experience &amp; policy headlines: share rated negative.</p></div>
+      </div>
+      <div class="legend" id="c4-legend"></div>
+      <div class="chart short" style="height:160px"><canvas id="c4" role="img" aria-label="Share of negative policy headlines: GDELT tone versus headline review"></canvas></div>
+      <p class="small" id="c4-note" style="margin-top:8px"></p>
+    </section>
+  </div>
+</div>
+</main>
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<script src="data/meta.js"></script>
+<script src="data/issues.js"></script>
+<script src="data/risk.js"></script>
+<script src="assets/common.js"></script>
+<script>
+(function () {
+  const D = window.ISSUES, $ = id => document.getElementById(id);
+  const I = D.issues;
+  let selected = I[0].issue;
+  const months = Array.from(new Set(I.flatMap(i => Object.keys(i.monthly)))).sort();
+
+  function tiles() {
+    const worst = I.filter(i => i.articles >= 100).sort((a, b) => b.negative_share - a.negative_share)[0];
+    const lead = D.voices_overall[0];
+    $("tiles").innerHTML = [
+      [Dash.fmtInt(D.meta.articles), "articles about Southwest", `from ${Dash.fmtInt(D.meta.outlets)} outlets, Dec 2025 – Nov 2026`],
+      [String(I.length), "issues catalogued", `each with 10+ articles · ${Dash.fmtPct(D.meta.tagged_share)} of headlines tagged`],
+      [Dash.fmtPct(worst.negative_share), "of " + worst.issue.toLowerCase() + " coverage negative", "the most negative large issue (GDELT tone)"],
+      [Dash.fmtInt(lead.articles), "articles name " + lead.name, (lead.role || "") + " · the most-named voice"],
+    ].map(([v, l, n]) => `<div class="tile"><div class="label">${Dash.esc(l)}</div><div class="value">${v}</div><div class="note">${Dash.esc(n)}</div></div>`).join("");
+  }
+
+  function list() {
+    const max = Math.max(...I.map(i => i.share_of_coverage));
+    $("issue-list").innerHTML = I.map(i => `<button type="button" class="issue-row" data-issue="${Dash.esc(i.issue)}" aria-pressed="${i.issue === selected}">
+      <span><span class="name">${Dash.esc(i.issue)}</span><br><span class="meta">${Dash.fmtInt(i.articles)} articles · ${Dash.fmtInt(i.outlets)} outlets</span></span>
+      <span class="vol"><span class="hbar"><span style="width:${(i.share_of_coverage / max * 100).toFixed(1)}%"></span></span><span class="meta">${Dash.fmtPct(i.share_of_coverage)}</span></span>
+      <span><span class="neg">${Dash.fmtPct(i.negative_share)}</span><span class="negbar"><span style="width:${(i.negative_share * 100).toFixed(1)}%"></span></span></span>
+      <span class="meta">${Dash.fmtMonth(i.peak_month)}</span></button>`).join("");
+    $("issue-list").querySelectorAll(".issue-row").forEach(b => b.addEventListener("click", () => {
+      selected = b.dataset.issue;
+      $("issue-list").querySelectorAll(".issue-row").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      detail();
+      if (window.innerWidth < 860) $("detail").scrollIntoView({ behavior: "smooth", block: "start" });
+    }));
+  }
+
+  function detail() {
+    const i = I.find(x => x.issue === selected);
+    $("d-h").textContent = i.issue;
+    $("d-pill").textContent = `${Dash.fmtPct(i.share_of_coverage)} of coverage · tone ${Dash.fmtTone(i.avg_tone)}`;
+    $("d-sub").textContent = `${Dash.fmtInt(i.articles)} articles from ${Dash.fmtInt(i.outlets)} outlets; ${Dash.fmtPct(i.negative_share)} clearly negative. Articles per month:`;
+    Dash.chart("d-chart", {
+      type: "bar",
+      data: { labels: months.map(Dash.fmtMonth), datasets: [{ label: "Articles", data: months.map(m => i.monthly[m] || 0), backgroundColor: Dash.tok("s1"), maxBarThickness: 18 }] },
+      options: {
+        scales: {
+          x: Dash.axis({ grid: { display: false }, ticks: { color: Dash.tok("text-3"), maxRotation: 0, autoSkip: true, font: { size: 10 } } }),
+          y: Dash.axis({ beginAtZero: true, ticks: { color: Dash.tok("text-3"), maxTicksLimit: 4 } }),
+        },
+        plugins: { tooltip: { callbacks: { label: c => ` ${c.parsed.y} articles` } } },
+      },
+    });
+    const mix = Object.entries(i.outlet_type_mix).sort((a, b) => b[1] - a[1]);
+    $("d-mix").innerHTML = `<ul class="plain">${mix.slice(0, 5).map(([t, s]) => `<li style="padding:5px 0">
+      <div style="display:flex;justify-content:space-between"><span>${Dash.esc(t)}</span><span class="count">${Dash.fmtPct(s)}</span></div>
+      <div class="hbar" style="margin-top:3px"><span style="width:${(s * 100).toFixed(1)}%"></span></div></li>`).join("")}</ul>`;
+    $("d-outlets").innerHTML = i.top_outlets.slice(0, 6).map(o => `<li>${Dash.esc(o.domain)} <span class="role">· ${Dash.esc(o.type)}</span><span class="count">${o.articles}</span></li>`).join("");
+    $("d-voices").innerHTML = i.voices.slice(0, 6).map(v => `<li>${Dash.link(v.example_url, v.name)}
+      ${v.role ? `<span class="role">· ${Dash.esc(v.role)}</span>` : ""}<span class="count">${v.articles}</span></li>`).join("");
+    $("d-heads").innerHTML = i.example_headlines.slice(0, 5).map(h => `<li>${Dash.link(h.url, h.title)}
+      <span class="count">${h.outlets} outlet${h.outlets > 1 ? "s" : ""}</span><div class="role">${Dash.fmtDate(h.first_seen)} · tone ${Dash.fmtTone(h.tone)}</div></li>`).join("");
+    const q = D.rule_quality[i.issue];
+    $("d-quality").textContent = q && q.claude >= 10
+      ? `Tagging accuracy for this issue (checked against a blind headline review of 500 headlines across five brands): ${Math.round(q.rule_precision * 100)}% of tagged headlines were correct, and the rules found ${Math.round(q.rule_recall * 100)}% of relevant headlines.`
+      : "Too few examples in the 500-headline review to measure tagging accuracy for this issue.";
+  }
+
+  function heat() {
+    const M = D.outlet_issue_matrix, outlets = Object.keys(M), issues = I.map(i => i.issue);
+    const max = Math.max(...outlets.flatMap(o => issues.map(x => M[o][x] || 0)));
+    const dark = matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.dataset.theme !== "light";
+    const cell = v => {
+      if (!v) return `<td class="cell" style="color:${Dash.tok("text-3")}">·</td>`;
+      const a = 0.12 + 0.88 * Math.sqrt(v / max);   // sqrt so small counts stay visible
+      const ink = a > 0.55 ? "#ffffff" : Dash.tok("text-1");
+      return `<td class="cell" style="background:rgba(${dark ? "57,135,229" : "42,120,214"},${a.toFixed(2)});color:${ink}">${v}</td>`;
+    };
+    const short = s => s.replace("Financial performance & stock", "Financial").replace("Onboard experience & policies", "Onboard & policy")
+      .replace("Network, routes & growth", "Network").replace("Regulation, legal & politics", "Regulation & legal").replace("Brand, marketing & viral moments", "Brand & viral")
+      .replace("Passenger behaviour & security", "Passenger & security").replace("Operations & disruptions", "Operations").replace("Loyalty & partnerships", "Loyalty")
+      .replace("Strategy & leadership", "Strategy").replace("Labour & employees", "Labour").replace("Bankruptcy & restructuring", "Restructuring").replace("Safety & incidents", "Safety");
+    $("heat").innerHTML = `<div class="table-wrap"><table class="heat"><thead><tr><th>Outlet</th>${issues.map(x => `<th class="rot" title="${Dash.esc(x)}">${Dash.esc(short(x))}</th>`).join("")}</tr></thead>
+      <tbody>${outlets.map(o => `<tr><td style="white-space:nowrap">${Dash.esc(o)}</td>${issues.map(x => cell(M[o][x] || 0)).join("")}</tr>`).join("")}</tbody></table></div>`;
+  }
+
+  function voices() {
+    $("voices").innerHTML = D.voices_overall.slice(0, 12).map(v => `<li>${Dash.link(v.example_url, v.name)}
+      ${v.role ? `<span class="role">· ${Dash.esc(v.role)}</span>` : ""}<span class="count">${Dash.fmtInt(v.articles)}</span></li>`).join("");
+  }
+
+  function policy() {
+    const R = D.review_onboard;
+    Dash.legend($("c4-legend"), [{ label: "GDELT tone (below −2)", color: Dash.tok("muted-series") }, { label: "Headline review", color: Dash.tok("s1") }], "sq");
+    Dash.chart("c4", {
+      type: "bar",
+      data: { labels: ["Negative", "Positive (review only)"], datasets: [
+        { label: "GDELT tone", data: [R.gdelt_negative * 100, null], backgroundColor: Dash.tok("muted-series"), maxBarThickness: 16 },
+        { label: "Headline review", data: [R.review_negative * 100, R.review_positive * 100], backgroundColor: Dash.tok("s1"), maxBarThickness: 16 },
+      ] },
+      options: {
+        indexAxis: "y",
+        interaction: { mode: "index", intersect: false, axis: "y" },
+        scales: {
+          x: Dash.axis({ min: 0, max: 50, ticks: { color: Dash.tok("text-3"), callback: v => v + "%" } }),
+          y: Dash.axis({ grid: { display: false }, ticks: { color: Dash.tok("text-2") } }),
+        },
+        plugins: { tooltip: { callbacks: { label: c => c.parsed.x == null ? null : ` ${c.dataset.label}: ${c.parsed.x.toFixed(0)}%` } } },
+      },
+    });
+    $("c4-note").innerHTML = `On the ${R.n} sampled onboard and policy headlines, GDELT rated ${Dash.fmtPct(R.gdelt_negative)} negative; the review rated <strong>${Dash.fmtPct(R.review_negative)} negative</strong> and ${Dash.fmtPct(R.review_positive)} positive. Neutral-sounding headlines ("Southwest testing new cleaning policy", "airline kills popular perk") describe changes customers dislike. Small sample: treat as directional.`;
+  }
+
+  // ---- client-action layer ----
+  const P = window.RISK.southwest_priority.issues;
+  const REACH_LINE = 0.10, NEG_LINE = 0.30;   // quadrant lines (analyst judgement)
+  function quadrant(reach, neg) {
+    if (reach >= REACH_LINE && neg >= NEG_LINE) return "Act now";
+    if (neg >= NEG_LINE) return "Contain";
+    if (reach >= REACH_LINE) return "Shape";
+    return "Monitor";
+  }
+  const momentumText = m => m >= 1.2 ? `Rising (${m.toFixed(1)}×)` : m < 0.8 ? `Easing (${m.toFixed(1)}×)` : `Steady (${m.toFixed(1)}×)`;
+  // Recommended response per issue (our advice; the numbers beside it come from the data)
+  const PLAY = {
+    "Safety & incidents": ["Same-day local statement after any incident; follow up on the fix.", "Comms + Ops"],
+    "Onboard experience & policies": ["Lead each change with what passengers gain; CEO voice; local TV first.", "Comms + Customer"],
+    "Regulation, legal & politics": ["Prepared positions on fines and lawsuits; brief trade and policy press.", "Legal + Public affairs"],
+    "Labour & employees": ["Keep the employee story visible; agreed lines for contract talks.", "HR + Comms"],
+    "Operations & disruptions": ["Real-time disruption updates by market; own the recovery story.", "Ops + Social"],
+    "Passenger behaviour & security": ["Holding lines for onboard incidents; visible support for crews.", "Comms + Inflight"],
+    "Fares, fees & deals": ["Explain fee changes alongside the value story.", "Revenue + Comms"],
+    "Loyalty & partnerships": ["Explain the Rapid Rewards changes before customers and bloggers do.", "Loyalty + Comms"],
+    "Network, routes & growth": ["Use new routes as positive local stories, especially where service is ending.", "Network + PR"],
+    "Strategy & leadership": ["Keep the leadership narrative consistent across changes.", "Exec comms"],
+    "Financial performance & stock": ["Investor relations as usual; no consumer action needed.", "IR"],
+    "Brand, marketing & viral moments": ["Low risk; amplify the positive moments.", "Brand + Social"],
+  };
+
+  function matrix() {
+    const onb = P.find(p => p.issue === "Onboard experience & policies"), rv = D.review_onboard;
+    const short = s => s.replace("Financial performance & stock", "Financial").replace("Onboard experience & policies", "Policies & onboard")
+      .replace("Regulation, legal & politics", "Regulation & legal").replace("Brand, marketing & viral moments", "Brand & marketing")
+      .replace("Passenger behaviour & security", "Passenger behaviour").replace("Network, routes & growth", "Network & routes")
+      .replace("Operations & disruptions", "Disruptions").replace("Fares, fees & deals", "Fares & fees").replace("Loyalty & partnerships", "Loyalty")
+      .replace("Labour & employees", "Labour").replace("Strategy & leadership", "Leadership").replace("Safety & incidents", "Safety");
+    const sevColor = sv => sv >= 3 ? Dash.tok("neg") : sv === 2 ? Dash.tok("text-1") : Dash.tok("muted-series");
+    const NAMED = ["Safety & incidents", "Onboard experience & policies", "Regulation, legal & politics", "Labour & employees", "Network, routes & growth", "Financial performance & stock"];
+    // per-label nudges (px) where points sit almost on top of each other
+    const NUDGE = { "Operations & disruptions": { side: "left", dy: -7 }, "Passenger behaviour & security": { side: "left", dy: 9 },
+                    "Fares, fees & deals": { dy: 9 }, "Brand, marketing & viral moments": { dy: -6 }, "Loyalty & partnerships": { dy: -2 } };
+    const pts = P.map((p, k) => ({ x: p.reach * 100, y: p.negative_share * 100, r: 4 + p.severity * 2.2, sev: p.severity,
+      label: (k + 1) + (!Dash.narrow() && NAMED.includes(p.issue) ? " " + short(p.issue) : ""), ...(NUDGE[p.issue] || {}) }));
+    const review = { x: onb.reach * 100, y: rv.review_negative * 100, r: 4 + onb.severity * 2.2, label: Dash.narrow() ? "2 (review)" : "2 by headline review" };
+    const xMax = Math.ceil(Math.max(...pts.map(p => p.x)) / 5) * 5 + 2;
+    // draws the issue name beside each point
+    const labeler = { id: "pointLabels", afterDatasetsDraw(ch) {
+      const ctx = ch.ctx; ctx.save(); ctx.font = `12px ${Dash.tok("font")}`; ctx.fillStyle = Dash.tok("text-1"); ctx.textBaseline = "middle";
+      ch.data.datasets.forEach((ds, di) => ch.getDatasetMeta(di).data.forEach((el, i) => {
+        const d = ds.data[i]; if (!d.label) return;
+        const right = d.side ? d.side === "right" : el.x < ch.chartArea.right - 130;
+        ctx.textAlign = right ? "left" : "right";
+        ctx.fillText(d.label, el.x + (right ? 1 : -1) * (d.r + 5), el.y + (d.dy || 0));
+      })); ctx.restore(); } };
+    // nudge labels that collide (small issues cluster near the origin)
+    const qLine = (axis, v) => ({ type: "line", [axis + "Min"]: v, [axis + "Max"]: v, borderColor: Dash.tok("axis"), borderWidth: 1, borderDash: [4, 4] });
+    const qLabel = (x, y, text, pos) => ({ type: "label", xValue: x, yValue: y, content: text, position: pos, color: Dash.tok("text-3"),
+      font: { family: Dash.tok("mono"), size: 10.5 } });
+    Dash.chart("m-chart", {
+      type: "bubble",
+      data: { datasets: [
+        { label: "Issues (GDELT tone)", data: pts, backgroundColor: pts.map(p => sevColor(p.sev)), borderColor: Dash.tok("page"), borderWidth: 2 },
+        { label: "Policies (headline review)", data: [review], backgroundColor: "transparent", borderColor: Dash.tok("neg"), borderWidth: 2, borderDash: [3, 2] },
+      ] },
+      options: {
+        layout: { padding: { right: 12, top: 8 } },
+        scales: {
+          x: Dash.axis({ min: 0, max: xMax, title: { display: true, text: "Share of Southwest coverage", color: Dash.tok("text-3") }, ticks: { color: Dash.tok("text-3"), stepSize: 5, callback: v => (v % 5 === 0 ? v + "%" : "") } }),
+          y: Dash.axis({ min: 0, max: 100, title: { display: true, text: "Share negative", color: Dash.tok("text-3") }, ticks: { color: Dash.tok("text-3"), stepSize: 25, callback: v => v + "%" } }),
+        },
+        plugins: {
+          tooltip: { callbacks: { label: c => ` ${c.raw.label}: ${c.raw.x.toFixed(1)}% of coverage, ${c.raw.y.toFixed(0)}% negative` } },
+          annotation: { annotations: {
+            vx: qLine("x", REACH_LINE * 100), hy: qLine("y", NEG_LINE * 100),
+            q1: qLabel(xMax, 100, "ACT NOW", { x: "end", y: "start" }), q2: qLabel(0, 100, "CONTAIN", { x: "start", y: "start" }),
+            q3: qLabel(xMax, 0, "SHAPE", { x: "end", y: "end" }), q4: qLabel(REACH_LINE * 100 - 0.3, 0, "MONITOR", { x: "end", y: "end" }),
+            arrow: { type: "line", xMin: onb.reach * 100, xMax: onb.reach * 100, yMin: onb.negative_share * 100 + 4, yMax: rv.review_negative * 100 - 4,
+                     borderColor: Dash.tok("neg"), borderWidth: 1.5, arrowHeads: { end: { display: true, length: 7, width: 5 } } },
+          } },
+        },
+      },
+      plugins: [labeler],
+    });
+  }
+
+  function priorityList() {
+    Dash.table($("prio"), ["#", "Issue", "Priority", "Reach", "Negative", "Severity", "Momentum", "Stance", "Recommended response", "Owner"],
+      P.map((p, k) => {
+        const byReview = p.issue === "Onboard experience & policies";
+        const q = quadrant(p.reach, byReview ? D.review_onboard.review_negative : p.negative_share);
+        const lvl = q === "Act now" ? "high" : q === "Contain" ? "medium" : "low";
+        return [k + 1, `<strong>${Dash.esc(p.issue)}</strong>`,
+          `<div style="display:flex;align-items:center;gap:8px"><span style="font-variant-numeric:tabular-nums;width:24px;text-align:right">${p.priority}</span><span class="hbar" style="flex:1;min-width:50px"><span style="width:${p.priority}%;background:${Dash.tok("text-1")}"></span></span></div>`,
+          Dash.fmtPct(p.reach), Dash.fmtPct(p.negative_share), "●".repeat(p.severity) || "–", momentumText(p.momentum),
+          Dash.chip(lvl, q) + (byReview ? `<div class="small muted">by headline review</div>` : ""), `<span class="small">${Dash.esc(PLAY[p.issue][0])}</span>`, `<span class="small">${Dash.esc(PLAY[p.issue][1])}</span>`];
+      }), [0, 3, 4]);
+  }
+
+  function actionPlan() {
+    const get = n => P.find(p => p.issue === n), saf = get("Safety & incidents"), onb = get("Onboard experience & policies"),
+          reg = get("Regulation, legal & politics"), lab = get("Labour & employees"), loy = get("Loyalty & partnerships");
+    const rv = D.review_onboard, local = D.outlet_types_overall["Local TV / radio"], lead = D.voices_overall[0];
+    Dash.actions($("actions"), [
+      { pri: "high", action: "Run a same-day, local-first incident response",
+        detail: "A holding statement, the facts, and a follow-up on the fix, placed with local TV and radio in the affected market.",
+        evidence: `Safety is the top-priority issue: ${Dash.fmtPct(saf.reach)} of coverage, ${Dash.fmtPct(saf.negative_share)} negative. Local TV and radio carry ${Dash.fmtPct(local)} of all Southwest coverage.`,
+        owner: "Comms + Ops", when: "Standing protocol" },
+      { pri: "high", action: "Launch each policy change with a passenger-benefit story, led by the CEO",
+        detail: `${Dash.esc(lead.name)} is already the most-named voice; use it on the changes customers feel.`,
+        evidence: `Policy and onboard changes are ${Dash.fmtPct(onb.reach)} of coverage: ${Dash.fmtPct(rv.review_negative)} negative by headline review vs ${Dash.fmtPct(rv.gdelt_negative)} by GDELT tone (${rv.n} headlines, directional).`,
+        owner: "Comms + Customer", when: "Every policy change" },
+      { pri: "medium", action: "Get ahead of the Rapid Rewards overhaul",
+        detail: "Publish a plain-English guide to who gains and who loses, before travel bloggers write it for you.",
+        evidence: `Loyalty coverage since August is running at ${loy.momentum.toFixed(1)}× its 12-month average; it is ${Dash.fmtPct(loy.negative_share)} negative so far.`,
+        owner: "Loyalty + Comms", when: "Next 30 days" },
+      { pri: "medium", action: "Prepare positions on regulation and labour stories",
+        detail: "Agreed lines on fines, lawsuits and contract talks, so the response is fast and consistent.",
+        evidence: `Regulation and legal: ${Dash.fmtPct(reg.negative_share)} negative. Labour: ${Dash.fmtPct(lab.negative_share)} negative.`,
+        owner: "Legal + HR + Public affairs", when: "Next quarter" },
+    ]);
+  }
+
+  function render() { actionPlan(); matrix(); priorityList(); tiles(); list(); detail(); heat(); voices(); policy(); }
+  Dash.start(render);
+})();
+</script>
+</body>
+</html>

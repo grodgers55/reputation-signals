@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Airline Reputation Tracker</title>
+<meta name="description" content="Briefing 01: weekly reputation risk, news coverage, tone and search interest for Frontier, Spirit and Southwest, Dec 2025 – Nov 2026, with recommended actions.">
+<!--HEAD-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reputation Signals">
+<meta property="og:title" content="Airline Reputation Tracker · Reputation Signals">
+<meta property="og:description" content="Briefing 01: weekly reputation risk, news coverage, tone and search interest for Frontier, Spirit and Southwest, Dec 2025 – Nov 2026, with recommended actions.">
+<meta property="og:image" content="https://grodgers55.github.io/reputation-signals/assets/og.png">
+<link rel="canonical" href="https://grodgers55.github.io/reputation-signals/tracker.html">
+<meta property="og:url" content="https://grodgers55.github.io/reputation-signals/tracker.html">
+<meta name="twitter:card" content="summary_large_image">
+<!--/HEAD-->
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main class="wrap">
+  <section class="page-head">
+    <div class="kicker"><span>Briefing 01</span><span>US airlines</span><span id="k-window"></span><span class="poc">Proof of concept · public data</span></div>
+    <h1>One bad day defines Frontier. Southwest writes its own headlines.</h1>
+    <p class="lede">Twelve months of news and search data on Frontier, Spirit and Southwest: where each airline's reputation was exposed, how early the trouble showed, and what each should do next.</p>
+    <div class="page-tools" id="page-tools"></div>
+  </section>
+
+  <section class="brief" aria-label="Summary for the client">
+    <div class="brief-grid">
+      <div>
+        <span class="lbl">What we found</span>
+        <p class="big"><strong>58% of Frontier's coverage was about safety incidents</strong>, and every one of its five Alert weeks was an incident.</p>
+        <p>Southwest's coverage is driven by its own changes (seating, bags, policies, loyalty). Spirit's collapse showed in the data before it happened: the risk index put Spirit on Alert from the week ending 19 April, 13 days before it stopped flying.</p>
+      </div>
+      <div>
+        <span class="lbl">What it means</span>
+        <p>Frontier's next incident will land on a brand with almost no positive news to balance it. Southwest's risk is self-inflicted, which also makes it controllable.</p>
+        <p>Automated tone scores understate all of this: a headline-by-headline review rated <strong>85% of Spirit headlines negative, against 49%</strong> by GDELT tone.</p>
+      </div>
+      <div class="rec">
+        <span class="lbl">What we recommend</span>
+        <p><strong>Frontier:</strong> keep an incident-response kit ready, and use the first-class launch to build a steady product story.</p>
+        <p><strong>Southwest:</strong> launch every policy change with a "what passengers gain" story.</p>
+        <p><strong>All:</strong> monitor weekly with the risk index below, and check headlines, not just tone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tiles" id="tiles" aria-label="Key numbers"></section>
+
+  <section class="actions" aria-labelledby="act-h">
+    <div class="part" style="margin-top:34px"><span class="lbl">Action plan</span><h2 id="act-h">Priority actions</h2></div>
+    <div id="actions"></div>
+  </section>
+
+  <div class="controls" role="group" aria-label="Chart filters">
+    <span class="label">Airline</span><div class="seg" id="f-airline"></div>
+    <span class="label" style="margin-left:8px">Measure</span><div class="seg" id="f-measure"></div>
+  </div>
+
+  <div class="part"><span class="lbl">Part I</span><h2>Early warning</h2></div>
+  <div class="with-note">
+    <section class="card" aria-labelledby="c0-h">
+      <div class="card-head">
+        <div><span class="exhibit-no">Exhibit 1.1</span><h2 id="c0-h">Frontier crossed the Alert line five times. Southwest never did.</h2>
+          <p class="sub">Reputation Risk Index by week, 0–100. It combines how unusual the week's coverage was, how negative it was, and how serious the issues were.</p></div>
+        <button class="link-btn" id="t0-btn" aria-expanded="false" aria-controls="t0">Show data table</button>
+      </div>
+      <div class="legend" id="c0-legend"></div>
+      <div id="c0-multi" class="multiples"></div>
+      <div id="t0" class="data-table" hidden></div>
+      <h3 class="section-title" style="margin:20px 0 8px">Every Alert week, and the story behind it</h3>
+      <div id="alerts"></div>
+      <p class="source">GDELT GKG via BigQuery. Index and thresholds: see the note and the methodology. Week ending 15 Nov is the latest full week.</p>
+    </section>
+    <aside class="margin-note" aria-label="How to read the risk index">
+      <span class="lbl">Analyst note · reading the index</span>
+      <p><strong>Attention (50%)</strong>: this week's coverage vs the brand's previous 8 weeks, on a log scale. <strong>Negativity (25%)</strong>: share of articles with tone below −2. <strong>Severity (25%)</strong>: how serious the issues in the headlines are (safety and bankruptcy count most).</p>
+      <p id="th-note"></p>
+      <p>The index tells you <em>where to look</em>, not how bad it is. Frontier's latest week sits just under Alert because its first-class launch made big news in the same week as a cabin-flood diversion. An analyst reads the headlines before anyone acts.</p>
+    </aside>
+  </div>
+
+  <div class="deep">
+  <div class="part"><span class="lbl">Part II</span><h2>Coverage, tone and search</h2></div>
+  <section class="card" aria-labelledby="c1-h">
+    <div class="card-head">
+      <div><span class="exhibit-no">Exhibit 1.2</span><h2 id="c1-h">Each airline's year was shaped by a few events</h2>
+        <p class="sub" id="c1-sub"></p></div>
+      <button class="link-btn" id="t1-btn" aria-expanded="false" aria-controls="t1">Show data table</button>
+    </div>
+    <div class="legend" id="c1-legend"></div>
+    <div class="chart tall"><canvas id="c1" role="img" aria-label="Weekly news coverage by airline with numbered event markers"></canvas></div>
+    <div id="t1" class="data-table" hidden></div>
+    <h3 class="section-title" style="margin:20px 0 8px">What moved the line</h3>
+    <ol class="events" id="events"></ol>
+    <p class="source">GDELT Global Knowledge Graph via BigQuery, English-language articles "about" each airline (brand in the headline or named 3+ times), syndicated copies collapsed. Per 100k = articles per 100,000 English articles GDELT processed that week. Week of 15 Nov is partial.</p>
+  </section>
+
+  <div class="grid-2">
+    <section class="card" aria-labelledby="c2-h">
+      <div class="card-head">
+        <div><span class="exhibit-no">Exhibit 1.3</span><h2 id="c2-h">Frontier's tone stayed negative from March to June</h2><p class="sub">Average GDELT tone of each month's coverage. Below zero = negative language.</p></div>
+        <button class="link-btn" id="t2-btn" aria-expanded="false" aria-controls="t2">Show data table</button>
+      </div>
+      <div class="legend" id="c2-legend"></div>
+      <div class="chart"><canvas id="c2" role="img" aria-label="Monthly average tone by airline"></canvas></div>
+      <div id="t2" class="data-table" hidden></div>
+      <p class="source">GDELT tone counts positive and negative words; it measures language, not impact on the brand. Months with fewer than 5 articles are left blank.</p>
+    </section>
+    <section class="card" aria-labelledby="c3-h">
+      <div class="card-head">
+        <div><span class="exhibit-no">Exhibit 1.4</span><h2 id="c3-h">Search interest follows the news, at a smaller scale</h2><p class="sub">Google Trends, US, weekly. 100 = the busiest week for any of the three.</p></div>
+        <button class="link-btn" id="t3-btn" aria-expanded="false" aria-controls="t3">Show data table</button>
+      </div>
+      <div class="legend" id="c3-legend"></div>
+      <div class="chart"><canvas id="c3" role="img" aria-label="Weekly Google search interest by airline"></canvas></div>
+      <div id="t3" class="data-table" hidden></div>
+      <p class="source">Google Trends topic entities (e.g. "Southwest Airlines — airline"), pulled together so the three are on one scale. Relative index, not search counts.</p>
+    </section>
+  </div>
+
+  <div class="grid-2">
+    <section class="card" aria-labelledby="c4-h">
+      <div class="card-head">
+        <div><span class="exhibit-no">Exhibit 1.5</span><h2 id="c4-h">Machine tone misses much of the bad news</h2>
+          <p class="sub">Share of headlines rated negative by GDELT's tone score vs a headline-by-headline review.</p></div>
+        <button class="link-btn" id="t4-btn" aria-expanded="false" aria-controls="t4">Show data table</button>
+      </div>
+      <div class="legend" id="c4-legend"></div>
+      <div class="chart short"><canvas id="c4" role="img" aria-label="Share of negative headlines, GDELT tone versus headline review"></canvas></div>
+      <div id="t4" class="data-table" hidden></div>
+      <p class="source" id="c4-src"></p>
+    </section>
+    <section class="card" aria-labelledby="c5-h">
+      <span class="exhibit-no">Exhibit 1.6</span>
+      <h2 id="c5-h">What the coverage was about</h2>
+      <p class="sub">Top issues by share of each airline's coverage (a story can cover several issues).</p>
+      <div id="issues"></div>
+      <p class="source">Issues assigned by keyword rules on headlines; accuracy checked against the headline review (see methodology).</p>
+    </section>
+  </div>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<script src="data/meta.js"></script>
+<script src="data/tracker.js"></script>
+<script src="data/risk.js"></script>
+<script src="data/issues.js"></script>
+<script src="assets/common.js"></script>
+<script>
+(function () {
+  const D = window.TRACKER, R = window.RISK, I = window.ISSUES, TH = R.meta.thresholds, $ = id => document.getElementById(id);
+  const ORDER = ["southwest", "frontier", "spirit"];             // fixed colour order: slot 1, 2, 3
+  const COLOR = { southwest: "s1", frontier: "s2", spirit: "s3" };
+  const NAME = b => D.brands[b].name;
+  const SHORT = b => NAME(b).replace(" Airlines", "");
+  let airline = "all", measure = "per_100k";
+
+  // Priority actions. Every number here comes from the data files loaded above.
+  function actionPlan() {
+    const fr = R.brands.frontier, sw = R.southwest_priority.issues;
+    const loyalty = sw.find(i => i.issue === "Loyalty & partnerships");
+    const onboard = sw.find(i => i.issue === "Onboard experience & policies");
+    const julTone = D.brands.frontier.monthly.find(m => m.period === "2026-07").tone;
+    Dash.actions($("actions"), [
+      { pri: "high", action: "Frontier: keep an incident-response kit ready",
+        detail: "A holding statement, a named spokesperson, and a media list for each local market Frontier serves.",
+        evidence: `${Dash.fmtPct(D.issue_mix.frontier[0].share)} of coverage was safety; all ${fr.weeks_alert} Alert weeks were incidents (close calls, a runway death, onboard disputes).`,
+        owner: "Comms + Safety", when: "Now, then ongoing" },
+      { pri: "high", action: "Frontier: turn the first-class launch into a run of product stories",
+        detail: "Plan a sequence of customer stories (cabin, Wi-Fi, routes) rather than a single announcement.",
+        evidence: `July's Starlink Wi-Fi news turned monthly tone to ${Dash.fmtTone(julTone)} after four negative months. One launch headline ran on 37 outlets in the week ending 15 Nov.`,
+        owner: "Brand + Comms", when: "Next 30 days" },
+      { pri: "medium", action: "Southwest: launch each policy change with a passenger-benefit story",
+        detail: "Have the CEO lead it, and place it with the local TV and radio stations that carry most Southwest news.",
+        evidence: `Onboard and policy changes are ${Dash.fmtPct(onboard.reach)} of coverage, and the headline review reads them as ${Dash.fmtPct(I.review_onboard.review_negative)} negative (GDELT tone: ${Dash.fmtPct(I.review_onboard.gdelt_negative)}). Loyalty coverage has run at ${loyalty.momentum.toFixed(1)}× its yearly average since August.`,
+        owner: "Comms + Customer", when: "Before the next change" },
+      { pri: "medium", action: "All: report a weekly risk index and review headlines, not only tone scores",
+        detail: "Use thresholds set from the client's peers; an analyst reads every Watch or Alert week.",
+        evidence: `GDELT tone rated ${Dash.fmtPct(D.review.spirit.gdelt.negative)} of Spirit headlines negative; the headline review rated ${Dash.fmtPct(D.review.spirit.review.negative)}.`,
+        owner: "Insights", when: "From the next monthly report" },
+    ]);
+  }
+
+  function tiles() {
+    $("tiles").innerHTML = ORDER.map(b => {
+      const m = D.brands[b].monthly, total = m.reduce((s, r) => s + r.articles, 0);
+      const peak = m.reduce((a, r) => (r.articles > a.articles ? r : a));
+      const rb = R.brands[b];
+      return `<div class="tile"><div class="label"><span class="key" style="background:${Dash.tok(COLOR[b])}"></span>${NAME(b)}</div>
+        <div class="value">${Dash.fmtInt(total)}</div>
+        <div class="note">articles about the airline · peak ${Dash.fmtMonth(peak.period)} · ${rb.weeks_alert} Alert week${rb.weeks_alert === 1 ? "" : "s"}</div></div>`;
+    }).join("") + `<div class="tile"><div class="label">Spirit warning</div><div class="value">${R.backtest.lead_days_final_run} days</div>
+      <div class="note">from the index's Alert (week ending ${Dash.fmtDay(R.backtest.final_alert_run_start)}) to the shutdown on ${Dash.fmtDay(R.backtest.shutdown)}</div></div>`;
+  }
+
+  function visible() { return airline === "all" ? ORDER : [airline]; }
+
+  // Small multiples: one panel per airline, bars shaded by risk level
+  function risk() {
+    const labels = R.brands.southwest.weekly.map(r => r.week);
+    const vis = visible();
+    const LV = { normal: Dash.tok("mid"), watch: Dash.tok("text-2"), alert: Dash.tok("neg") };
+    Dash.legend($("c0-legend"), [{ label: "Normal", color: LV.normal }, { label: `Watch (${Math.round(TH.watch)}+)`, color: LV.watch },
+                                 { label: `Alert (${Math.round(TH.alert)}+)`, color: LV.alert }], "sq");
+    $("c0-multi").innerHTML = vis.map(b => `<div class="panel"><div class="panel-head"><span><span class="key" style="background:${Dash.tok(COLOR[b])}"></span>${NAME(b)}</span>
+      <span class="small muted">${R.brands[b].weeks_alert} Alert · ${R.brands[b].weeks_watch - R.brands[b].weeks_alert} Watch weeks</span></div>
+      <div class="chart" style="height:${vis.length > 1 ? 120 : 260}px"><canvas id="c0-${b}" role="img" aria-label="Weekly risk index for ${NAME(b)}"></canvas></div></div>`).join("");
+    const thLine = (v, dash) => ({ type: "line", yMin: v, yMax: v, borderColor: Dash.tok("axis"), borderWidth: 1, borderDash: dash });
+    vis.forEach((b, k) => {
+      const rows = R.brands[b].weekly;
+      Dash.chart("c0-" + b, {
+        type: "bar",
+        data: { labels, datasets: [{ label: NAME(b), data: rows.map(r => r.rri),
+          backgroundColor: rows.map(r => LV[Dash.riskLevel(r.rri, TH)]), barPercentage: 0.9, categoryPercentage: 0.9, borderRadius: 1 }] },
+        options: {
+          scales: {
+            x: Dash.axis({ grid: { display: false }, ticks: { display: k === vis.length - 1, color: Dash.tok("text-3"), maxRotation: 0, autoSkip: true, maxTicksLimit: 12,
+                  callback: (v, i) => Dash.fmtDay(labels[i]) } }),
+            y: Dash.axis({ min: 0, max: 100, ticks: { color: Dash.tok("text-3"), stepSize: 50 } }),
+          },
+          plugins: {
+            tooltip: { callbacks: {
+              title: items => "Week ending " + Dash.fmtDate(labels[items[0].dataIndex]),
+              label: c => {
+                const r = rows[c.dataIndex];
+                if (r.rri == null) return ` ${NAME(b)}: not enough history yet`;
+                return [` ${NAME(b)}: ${r.rri.toFixed(0)} · ${Dash.riskLevel(r.rri, TH)}`, ` ${r.articles} articles, ${r.ratio}× normal volume`];
+              },
+            } },
+            annotation: { annotations: { watch: thLine(TH.watch, [3, 3]), alert: thLine(TH.alert, []) } },
+          },
+        },
+      });
+    });
+    Dash.table($("t0"), ["Week ending", ...vis.map(NAME)],
+      labels.map((l, i) => [Dash.fmtDate(l), ...vis.map(b => { const v = R.brands[b].weekly[i].rri; return v == null ? "–" : v.toFixed(0); })]),
+      vis.map((_, i) => i + 1));
+    const al = R.alerts.filter(a => vis.includes(a.brand)).sort((a, b) => a.week.localeCompare(b.week));
+    Dash.table($("alerts"), ["Week ending", "Airline", "Index", "Most-carried headline"],
+      al.map(a => [Dash.fmtDate(a.week), Dash.esc(SHORT(a.brand)), Dash.chip("alert", Math.round(a.rri)),
+        a.story ? `${Dash.link(a.story.url, a.story.title)} <span class="muted">· ${a.story.outlets} outlets</span>` : "–"]));
+    if (!al.length) $("alerts").innerHTML = `<p class="small muted">No Alert weeks for ${vis.map(SHORT).join(", ")} in this period.</p>`;
+    $("th-note").innerHTML = `<strong>Thresholds are not tuned on Spirit.</strong> Watch (${TH.watch}) and Alert (${TH.alert}) are the 90th and 97.5th percentiles of ${TH.brand_weeks} weekly scores for Frontier, Southwest, Cava and Dutch Bros. Spirit was then tested against them.`;
+  }
+
+  function weekly() {
+    const labels = D.brands.southwest.weekly.map(r => r.period);
+    const vis = visible();
+    $("c1-sub").textContent = measure === "per_100k"
+      ? "Articles per 100,000 English news articles, by week. Numbered markers are explained below."
+      : "Number of articles, by week. Numbered markers are explained below.";
+    Dash.legend($("c1-legend"), vis.map(b => ({ label: NAME(b), color: Dash.tok(COLOR[b]) })));
+    const events = D.events.filter(e => vis.includes(e.brand));
+    Dash.chart("c1", {
+      type: "line",
+      data: { labels, datasets: vis.map(b => ({
+        label: NAME(b), data: D.brands[b].weekly.map(r => r[measure]),
+        borderColor: Dash.tok(COLOR[b]), backgroundColor: Dash.tok(COLOR[b]),
+      })) },
+      options: {
+        layout: { padding: { top: 18 } },
+        scales: {
+          x: Dash.axis({ grid: { display: false }, ticks: { color: Dash.tok("text-3"), maxRotation: 0, autoSkip: true, maxTicksLimit: 12,
+                callback: (v, i) => Dash.fmtDay(labels[i]) } }),
+          y: Dash.axis({ beginAtZero: true, ticks: { color: Dash.tok("text-3"), padding: 6, maxTicksLimit: 6 } }),
+        },
+        plugins: {
+          tooltip: { callbacks: {
+            title: items => "Week ending " + Dash.fmtDate(labels[items[0].dataIndex]),
+            label: c => ` ${c.dataset.label}: ${measure === "per_100k" ? c.parsed.y.toFixed(1) + " per 100k" : Dash.fmtInt(c.parsed.y) + " articles"}`,
+          } },
+          annotation: { annotations: Dash.eventMarkers(events, labels, Dash.weekMatch) },
+        },
+      },
+    });
+    $("events").innerHTML = events.map(e => `<li><span class="num">${e.n}</span><div>
+      <div><strong>${Dash.esc(e.label)}</strong> <span class="when">· ${Dash.esc(SHORT(e.brand))} · ${Dash.fmtDate(e.date)}</span></div>
+      <div class="src">${Dash.link(e.url, e.headline)} · ${Dash.esc(e.outlet)}</div></div></li>`).join("");
+    Dash.table($("t1"), ["Week ending", ...vis.map(NAME)],
+      labels.map((l, i) => [Dash.fmtDate(l), ...vis.map(b => {
+        const r = D.brands[b].weekly[i]; return measure === "per_100k" ? r.per_100k.toFixed(1) : Dash.fmtInt(r.articles);
+      })]), vis.map((_, i) => i + 1));
+  }
+
+  function tone() {
+    const labels = D.brands.southwest.monthly.map(r => r.period);
+    const vis = visible();
+    Dash.legend($("c2-legend"), vis.map(b => ({ label: NAME(b), color: Dash.tok(COLOR[b]) })), "sq");
+    Dash.chart("c2", {
+      type: "bar",
+      data: { labels: labels.map(Dash.fmtMonth), datasets: vis.map(b => ({
+        label: NAME(b), data: D.brands[b].monthly.map(r => r.tone),
+        backgroundColor: Dash.tok(COLOR[b]), maxBarThickness: 14, borderSkipped: "start", borderRadius: 2,
+      })) },
+      options: {
+        scales: {
+          x: Dash.axis({ grid: { display: false }, ticks: { color: Dash.tok("text-3"), maxRotation: 0, autoSkip: true } }),
+          y: Dash.axis({ ticks: { color: Dash.tok("text-3"), callback: v => Dash.fmtTone(v) },
+                         grid: { color: c => (c.tick.value === 0 ? Dash.tok("axis") : Dash.tok("grid")), drawTicks: false } }),
+        },
+        plugins: { tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${c.parsed.y == null ? "too few articles" : Dash.fmtTone(c.parsed.y)}` } } },
+      },
+    });
+    Dash.table($("t2"), ["Month", ...vis.map(NAME)],
+      labels.map((l, i) => [Dash.fmtMonth(l), ...vis.map(b => Dash.fmtTone(D.brands[b].monthly[i].tone))]), vis.map((_, i) => i + 1));
+  }
+
+  function search() {
+    const labels = D.brands.southwest.trends_weekly.map(r => r.week);
+    const vis = visible();
+    Dash.legend($("c3-legend"), vis.map(b => ({ label: NAME(b), color: Dash.tok(COLOR[b]) })));
+    Dash.chart("c3", {
+      type: "line",
+      data: { labels, datasets: vis.map(b => ({
+        label: NAME(b), data: D.brands[b].trends_weekly.map(r => r.index),
+        borderColor: Dash.tok(COLOR[b]), backgroundColor: Dash.tok(COLOR[b]),
+      })) },
+      options: {
+        scales: {
+          x: Dash.axis({ grid: { display: false }, ticks: { color: Dash.tok("text-3"), maxRotation: 0, autoSkip: true, maxTicksLimit: 6,
+                callback: (v, i) => Dash.fmtDay(labels[i]) } }),
+          y: Dash.axis({ min: 0, max: 100, ticks: { color: Dash.tok("text-3"), stepSize: 25 } }),
+        },
+        plugins: { tooltip: { callbacks: { title: i => "Week of " + Dash.fmtDate(labels[i[0].dataIndex]) } } },
+      },
+    });
+    Dash.table($("t3"), ["Week of", ...vis.map(NAME)],
+      labels.map((l, i) => [Dash.fmtDate(l), ...vis.map(b => D.brands[b].trends_weekly[i].index)]), vis.map((_, i) => i + 1));
+  }
+
+  function review() {
+    const vis = visible();
+    const RV = D.review;
+    Dash.legend($("c4-legend"), [{ label: "GDELT tone (below −2)", color: Dash.tok("muted-series") },
+                                 { label: "Headline review", color: Dash.tok("neg") }], "sq");
+    Dash.chart("c4", {
+      type: "bar",
+      data: { labels: vis.map(SHORT), datasets: [
+        { label: "GDELT tone", data: vis.map(b => RV[b].gdelt.negative * 100), backgroundColor: Dash.tok("muted-series"), maxBarThickness: 16 },
+        { label: "Headline review", data: vis.map(b => RV[b].review.negative * 100), backgroundColor: Dash.tok("neg"), maxBarThickness: 16 },
+      ] },
+      options: {
+        indexAxis: "y",
+        interaction: { mode: "index", intersect: false, axis: "y" },
+        scales: {
+          x: Dash.axis({ min: 0, max: 100, ticks: { color: Dash.tok("text-3"), callback: v => v + "%", stepSize: 25 } }),
+          y: Dash.axis({ grid: { display: false }, ticks: { color: Dash.tok("text-2") } }),
+        },
+        plugins: { tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${c.parsed.x.toFixed(0)}% negative` } } },
+      },
+    });
+    Dash.table($("t4"), ["Airline", "Headlines", "GDELT negative", "Review negative"],
+      vis.map(b => [NAME(b), RV[b].n, Dash.fmtPct(RV[b].gdelt.negative), Dash.fmtPct(RV[b].review.negative)]), [1, 2, 3]);
+    $("c4-src").innerHTML = `Random sample of ~100 headlines per airline, reviewed blind by Claude (sentiment toward the brand). GDELT and the review agree on negative / neutral / positive only ${Dash.fmtPct(D.review_meta.agreement)} of the time; GDELT reads factual bad news ("Frontier Airlines CEO resigns") as neutral or positive.`;
+  }
+
+  function issues() {
+    const vis = visible();
+    $("issues").innerHTML = vis.map(b => `<h3 style="margin:12px 0 4px"><span class="key" style="background:${Dash.tok(COLOR[b])}"></span>${NAME(b)}</h3>
+      <ul class="plain">${D.issue_mix[b].slice(0, 4).map(i => `<li>
+        <div><span>${Dash.esc(i.issue)}</span><span class="count">${Dash.fmtPct(i.share)}</span></div>
+        <div class="hbar" style="margin-top:5px"><span style="width:${(i.share * 100).toFixed(1)}%;background:${Dash.tok(COLOR[b])}"></span></div></li>`).join("")}</ul>`).join("");
+  }
+
+  function render() {
+    $("k-window").textContent = `${Dash.fmtMonth(D.meta.window[0].slice(0, 7))} – ${Dash.fmtMonth(D.meta.window[1].slice(0, 7))}`;
+    actionPlan(); tiles(); risk(); weekly(); tone(); search(); review(); issues();
+  }
+
+  Dash.segmented($("f-airline"), [{ value: "all", label: "All" }, ...ORDER.map(b => ({ value: b, label: SHORT(b) }))],
+    airline, v => { airline = v; risk(); weekly(); tone(); search(); review(); issues(); });
+  Dash.segmented($("f-measure"), [{ value: "per_100k", label: "Per 100k" }, { value: "articles", label: "Count" }],
+    measure, v => { measure = v; weekly(); });
+  ["0", "1", "2", "3", "4"].forEach(n => Dash.tableToggle("t" + n + "-btn", "t" + n));
+  Dash.start(render);
+})();
+</script>
+</body>
+</html>

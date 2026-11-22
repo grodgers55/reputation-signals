@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cava vs Dutch Bros</title>
+<meta name="description" content="Share of voice for Cava and Dutch Bros across news coverage and Google search interest, Dec 2025 – Nov 2026: how much each is talked about, in what tone, and about what.">
+<!--HEAD-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reputation Signals">
+<meta property="og:title" content="Cava vs Dutch Bros · Reputation Signals">
+<meta property="og:description" content="Share of voice for Cava and Dutch Bros across news coverage and Google search interest, Dec 2025 – Nov 2026: how much each is talked about, in what tone, and about what.">
+<meta property="og:image" content="https://grodgers55.github.io/reputation-signals/assets/og.png">
+<link rel="canonical" href="https://grodgers55.github.io/reputation-signals/share-of-voice.html">
+<meta property="og:url" content="https://grodgers55.github.io/reputation-signals/share-of-voice.html">
+<meta name="twitter:card" content="summary_large_image">
+<!--/HEAD-->
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main class="wrap">
+  <section class="page-head">
+    <div class="kicker"><span>Briefing 03</span><span>Share of voice</span><span id="k-window"></span><span class="poc">Proof of concept · public data</span></div>
+    <h1>Cava's customers are searching. Its news is talking to investors.</h1>
+    <p class="lede">Two fast-growing chains compared on how much they are talked about, in what tone and about what. The briefing is written as if Cava were the client: the challenger brand looking for room to grow.</p>
+    <div class="page-tools" id="page-tools"></div>
+  </section>
+
+  <section class="brief" aria-label="Summary for the client">
+    <div class="brief-grid">
+      <div>
+        <span class="lbl">What we found</span>
+        <p class="big">Dutch Bros owns more of the conversation, but <strong>Cava's search interest grew 13%</strong> while Dutch Bros' was flat.</p>
+        <p>Dutch Bros has 58% of the pair's news coverage and 62% of search interest. Neither brand reached the Watch level on the risk index all year (Cava came closest, in August).</p>
+      </div>
+      <div>
+        <span class="lbl">What it means</span>
+        <p>Cava's consumer momentum isn't reaching the news. 61% of its coverage is financial, written for investors, and a new Cava restaurant gets far less local coverage than a new Dutch Bros drive-thru (15% of coverage vs 27%).</p>
+        <p>With no reputational fire to fight, this is an offensive opportunity, not a defensive one.</p>
+      </div>
+      <div class="rec">
+        <span class="lbl">What we recommend</span>
+        <p><strong>Make every opening a local media event</strong>, the way Dutch Bros' openings are covered.</p>
+        <p><strong>Take menu launches to consumer and local press,</strong> not only the earnings call.</p>
+        <p><strong>Track share of voice monthly</strong> against the opening calendar to see what works.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tiles" id="tiles" aria-label="Key numbers"></section>
+
+  <section class="actions" aria-labelledby="act-h">
+    <div class="part" style="margin-top:34px"><span class="lbl">Action plan</span><h2 id="act-h">Priority actions for Cava</h2></div>
+    <div id="actions"></div>
+  </section>
+
+  <div class="part"><span class="lbl">Part I</span><h2>Where Cava wins, and where it doesn't</h2></div>
+  <section class="card" aria-labelledby="sc-h">
+    <span class="exhibit-no">Exhibit 3.1</span>
+    <h2 id="sc-h">Cava leads on momentum; Dutch Bros leads on reach and local presence</h2>
+    <p class="sub">A positioning scorecard: each measure compared head to head, with the implication for Cava.</p>
+    <div id="scorecard"></div>
+    <p class="source">GDELT GKG via BigQuery (news); Google Trends topic entities, US (search); headline review of 100 headlines per brand (tone); Reputation Risk Index (see methodology).</p>
+  </section>
+
+  <div class="deep">
+  <div class="part"><span class="lbl">Part II</span><h2>The detail</h2></div>
+  <section class="card" aria-labelledby="c1-h">
+    <div class="card-head">
+      <div><span class="exhibit-no">Exhibit 3.2</span><h2 id="c1-h">Dutch Bros led the news in 10 of 12 months</h2><p class="sub" id="c1-sub"></p></div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <div class="seg" id="f-measure" role="group" aria-label="Measure"></div>
+        <button class="link-btn" id="t1-btn" aria-expanded="false" aria-controls="t1">Show data table</button>
+      </div>
+    </div>
+    <div class="legend" id="c1-legend"></div>
+    <div class="chart"><canvas id="c1" role="img" aria-label="Monthly share of voice, Cava versus Dutch Bros"></canvas></div>
+    <div id="t1" class="data-table" hidden></div>
+    <ol class="events" id="events" style="margin-top:14px"></ol>
+    <p class="source">News: GDELT Global Knowledge Graph via BigQuery, articles "about" each brand, syndicated copies collapsed. Search: Google Trends topic entities, US, pulled together on one scale. Nov 2026 is partial.</p>
+  </section>
+
+  <div class="grid-2">
+    <section class="card" aria-labelledby="c2-h">
+      <div class="card-head">
+        <div><span class="exhibit-no">Exhibit 3.3</span><h2 id="c2-h">Cava's search interest is edging up</h2><p class="sub">Google Trends, US. 100 = the busiest week for either brand.</p></div>
+        <button class="link-btn" id="t2-btn" aria-expanded="false" aria-controls="t2">Show data table</button>
+      </div>
+      <div class="legend" id="c2-legend"></div>
+      <div class="chart"><canvas id="c2" role="img" aria-label="Weekly Google search interest, Cava versus Dutch Bros"></canvas></div>
+      <div id="t2" class="data-table" hidden></div>
+      <p class="source">Topic entities ("Cava Group — restaurant chain"), not raw search terms. The word "Cava" alone reads ~1.7× higher because it includes wine and Cleveland Cavaliers searches.</p>
+    </section>
+    <section class="card" aria-labelledby="c3-h">
+      <div class="card-head">
+        <div><span class="exhibit-no">Exhibit 3.4</span><h2 id="c3-h">Both brands' news is mostly for investors</h2><p class="sub">Share of each brand's news coverage, by issue.</p></div>
+        <button class="link-btn" id="t3-btn" aria-expanded="false" aria-controls="t3">Show data table</button>
+      </div>
+      <div class="legend" id="c3-legend"></div>
+      <div class="chart"><canvas id="c3" role="img" aria-label="Share of coverage by issue, Cava versus Dutch Bros"></canvas></div>
+      <div id="t3" class="data-table" hidden></div>
+      <p class="source">Issues from keyword rules on headlines; a story can cover several. About 15–20% of headlines match no issue.</p>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="c4-h">
+    <div class="card-head">
+      <div><span class="exhibit-no">Exhibit 3.5</span><h2 id="c4-h">Tone is similar: mostly positive, about 1 in 10 negative</h2><p class="sub">Headline review: how each headline reflects on the brand.</p></div>
+      <button class="link-btn" id="t4-btn" aria-expanded="false" aria-controls="t4">Show data table</button>
+    </div>
+    <div class="legend" id="c4-legend"></div>
+    <div class="chart short" style="height:150px"><canvas id="c4" role="img" aria-label="Share of negative, neutral and positive headlines by brand"></canvas></div>
+    <div id="t4" class="data-table" hidden></div>
+    <p class="source" id="c4-src"></p>
+  </section>
+</div>
+</main>
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<script src="data/meta.js"></script>
+<script src="data/sov.js"></script>
+<script src="data/risk.js"></script>
+<script src="assets/common.js"></script>
+<script>
+(function () {
+  const D = window.SOV, $ = id => document.getElementById(id);
+  const ORDER = ["cava", "dutch_bros"], COLOR = { cava: "s1", dutch_bros: "s2" };
+  const NAME = b => D.brands[b].name;
+  const months = D.brands.cava.monthly.map(r => r.period);
+  let measure = "news_sov";
+
+  const avg = (arr, from, to) => { const x = arr.filter(r => r.week >= from && r.week < to).map(r => r.index); return x.reduce((a, b) => a + b, 0) / x.length; };
+  const growth = b => { const w = D.brands[b].trends_weekly; return avg(w, "2026-08-01", "2026-11-01") / avg(w, "2025-12-01", "2026-03-01") - 1; };
+  const share = (b, issue) => (D.issue_mix[b].find(i => i.issue === issue) || { share: 0 }).share;
+
+  function mixBar(a, b) {   // a = Cava share, b = Dutch Bros share; Dutch Bros drawn first to match the numbers
+    return `<div class="mix" style="margin-top:8px" role="img" aria-label="Dutch Bros ${Dash.fmtPct(b)}, Cava ${Dash.fmtPct(a)}">
+      <span style="width:${b * 100}%;background:${Dash.tok("s2")}"></span><span style="width:${a * 100}%;background:${Dash.tok("s1")}"></span></div>`;
+  }
+  function tiles() {
+    const T = { cava: D.brands.cava.totals, dutch_bros: D.brands.dutch_bros.totals };
+    const k = b => `<span class="key" style="background:${Dash.tok(COLOR[b])}"></span>`;
+    $("tiles").innerHTML = [
+      `<div class="tile"><div class="label">News share of voice</div><div class="value">${Dash.fmtPct(T.dutch_bros.news_sov)} / ${Dash.fmtPct(T.cava.news_sov)}</div>
+        <div class="note">${k("dutch_bros")}Dutch Bros · ${k("cava")}Cava (${Dash.fmtInt(T.dutch_bros.articles)} vs ${Dash.fmtInt(T.cava.articles)} articles)</div>${mixBar(T.cava.news_sov, T.dutch_bros.news_sov)}</div>`,
+      `<div class="tile"><div class="label">Search share of voice</div><div class="value">${Dash.fmtPct(T.dutch_bros.search_sov)} / ${Dash.fmtPct(T.cava.search_sov)}</div>
+        <div class="note">${k("dutch_bros")}Dutch Bros · ${k("cava")}Cava, Google Trends</div>${mixBar(T.cava.search_sov, T.dutch_bros.search_sov)}</div>`,
+      `<div class="tile"><div class="label">Search interest growth</div><div class="value">${growth("cava") > 0 ? "+" : ""}${Dash.fmtPct(growth("cava"))}</div>
+        <div class="note">${k("cava")}Cava, Dec–Feb to Aug–Oct · Dutch Bros ${growth("dutch_bros") > 0 ? "+" : ""}${Dash.fmtPct(growth("dutch_bros"))}</div></div>`,
+      `<div class="tile"><div class="label">Coverage about store openings & growth</div><div class="value">${Dash.fmtPct(share("dutch_bros", "Network, routes & growth"))} vs ${Dash.fmtPct(share("cava", "Network, routes & growth"))}</div>
+        <div class="note">${k("dutch_bros")}Dutch Bros vs ${k("cava")}Cava, share of each brand's news</div></div>`,
+    ].join("");
+  }
+
+  // on stacked bars, show the numbered badge without a line cutting through the bar
+  function badgesOnly(ann) { Object.values(ann).forEach(a => { a.borderColor = "transparent"; }); return ann; }
+
+  function sovChart() {
+    const isNews = measure === "news_sov";
+    $("c1-sub").textContent = isNews
+      ? "Each brand's share of the two brands' combined news articles."
+      : "Each brand's share of the two brands' combined Google search interest.";
+    Dash.legend($("c1-legend"), ORDER.map(b => ({ label: NAME(b), color: Dash.tok(COLOR[b]) })), "sq");
+    const evs = D.events.slice();
+    Dash.chart("c1", {
+      type: "bar",
+      data: { labels: months.map(Dash.fmtMonth), datasets: ORDER.map(b => ({
+        label: NAME(b), data: D.brands[b].monthly.map(r => (r[measure] == null ? null : r[measure] * 100)),
+        backgroundColor: Dash.tok(COLOR[b]), borderColor: Dash.tok("surface"), borderWidth: { top: b === "cava" ? 2 : 0 },
+        borderRadius: 0, borderSkipped: false, maxBarThickness: 28,
+      })) },
+      options: {
+        layout: { padding: { top: 20 } },
+        scales: {
+          x: Dash.axis({ stacked: true, grid: { display: false }, ticks: { color: Dash.tok("text-3"), maxRotation: 0, autoSkip: true } }),
+          y: Dash.axis({ stacked: true, min: 0, max: 100, ticks: { color: Dash.tok("text-3"), stepSize: 25, callback: v => v + "%" } }),
+        },
+        plugins: {
+          tooltip: { callbacks: { label: c => {
+            const r = D.brands[ORDER[c.datasetIndex]].monthly[c.dataIndex];
+            return ` ${c.dataset.label}: ${c.parsed.y.toFixed(0)}%` + (isNews ? ` (${Dash.fmtInt(r.articles)} articles)` : ` (index ${r.search_index})`);
+          } } },
+          annotation: { annotations: isNews ? badgesOnly(Dash.eventMarkers(evs, months, Dash.monthMatch)) : {} },
+        },
+      },
+    });
+    $("events").innerHTML = isNews ? evs.map(e => `<li><span class="num">${e.n}</span><div>
+      <div><strong>${Dash.esc(e.label)}</strong> <span class="when">· ${Dash.esc(NAME(e.brand))} · ${Dash.fmtDate(e.date)}</span></div>
+      <div class="src">${Dash.link(e.url, e.headline)} — ${Dash.esc(e.outlet)}</div></div></li>`).join("") : "";
+    Dash.table($("t1"), ["Month", "Cava articles", "Dutch Bros articles", "Cava news share", "Cava search index", "Dutch Bros search index", "Cava search share"],
+      months.map((m, i) => { const c = D.brands.cava.monthly[i], d = D.brands.dutch_bros.monthly[i];
+        return [Dash.fmtMonth(m), c.articles, d.articles, Dash.fmtPct(c.news_sov), c.search_index ?? "–", d.search_index ?? "–", Dash.fmtPct(c.search_sov)]; }),
+      [1, 2, 3, 4, 5, 6]);
+  }
+
+  function search() {
+    const W = D.brands.cava.trends_weekly.map(r => r.week);
+    Dash.legend($("c2-legend"), ORDER.map(b => ({ label: NAME(b), color: Dash.tok(COLOR[b]) })));
+    Dash.chart("c2", {
+      type: "line",
+      data: { labels: W, datasets: ORDER.map(b => ({ label: NAME(b), data: D.brands[b].trends_weekly.map(r => r.index),
+        borderColor: Dash.tok(COLOR[b]), backgroundColor: Dash.tok(COLOR[b]) })) },
+      options: {
+        scales: {
+          x: Dash.axis({ grid: { display: false }, ticks: { color: Dash.tok("text-3"), maxRotation: 0, maxTicksLimit: 6, callback: (v, i) => Dash.fmtDay(W[i]) } }),
+          y: Dash.axis({ min: 0, max: 100, ticks: { color: Dash.tok("text-3"), stepSize: 25 } }),
+        },
+        plugins: { tooltip: { callbacks: { title: i => "Week of " + Dash.fmtDate(W[i[0].dataIndex]) } } },
+      },
+    });
+    Dash.table($("t2"), ["Week of", ...ORDER.map(NAME)], W.map((w, i) => [Dash.fmtDate(w), ...ORDER.map(b => D.brands[b].trends_weekly[i].index)]), [1, 2]);
+  }
+
+  function issues() {
+    const names = Array.from(new Set(ORDER.flatMap(b => D.issue_mix[b].filter(i => i.share >= 0.02).map(i => i.issue))));
+    names.sort((a, b) => (share("cava", b) + share("dutch_bros", b)) - (share("cava", a) + share("dutch_bros", a)));
+    Dash.legend($("c3-legend"), ORDER.map(b => ({ label: NAME(b), color: Dash.tok(COLOR[b]) })), "sq");
+    Dash.chart("c3", {
+      type: "bar",
+      data: { labels: names.map(n => n.replace(" & ", " & ")), datasets: ORDER.map(b => ({
+        label: NAME(b), data: names.map(n => share(b, n) * 100), backgroundColor: Dash.tok(COLOR[b]), maxBarThickness: 12 })) },
+      options: {
+        indexAxis: "y",
+        interaction: { mode: "index", intersect: false, axis: "y" },
+        scales: {
+          x: Dash.axis({ min: 0, ticks: { color: Dash.tok("text-3"), callback: v => v + "%" } }),
+          y: Dash.axis({ grid: { display: false }, ticks: { color: Dash.tok("text-2"), font: { size: 11 } } }),
+        },
+        plugins: { tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${c.parsed.x.toFixed(0)}% of coverage` } } },
+      },
+    });
+    Dash.table($("t3"), ["Issue", "Cava", "Dutch Bros"], names.map(n => [Dash.esc(n), Dash.fmtPct(share("cava", n)), Dash.fmtPct(share("dutch_bros", n))]), [1, 2]);
+  }
+
+  function tone() {
+    const R = D.review, C = { neg: Dash.tok("neg"), mid: Dash.tok("mid"), pos: Dash.tok("pos") };
+    Dash.legend($("c4-legend"), [{ label: "Negative", color: C.neg }, { label: "Neutral", color: C.mid }, { label: "Positive", color: C.pos }], "sq");
+    const ds = (label, key, color) => ({ label, data: ORDER.map(b => R[b].review[key] * 100), backgroundColor: color,
+      borderColor: Dash.tok("surface"), borderWidth: { right: 2 }, borderRadius: 0, maxBarThickness: 22 });
+    Dash.chart("c4", {
+      type: "bar",
+      data: { labels: ORDER.map(NAME), datasets: [ds("Negative", "negative", C.neg), ds("Neutral", "neutral", C.mid), ds("Positive", "positive", C.pos)] },
+      options: {
+        indexAxis: "y",
+        interaction: { mode: "index", intersect: false, axis: "y" },
+        scales: {
+          x: Dash.axis({ stacked: true, min: 0, max: 100, ticks: { color: Dash.tok("text-3"), stepSize: 25, callback: v => v + "%" } }),
+          y: Dash.axis({ stacked: true, grid: { display: false }, ticks: { color: Dash.tok("text-2") } }),
+        },
+        plugins: { tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${c.parsed.x.toFixed(0)}%` } } },
+      },
+    });
+    Dash.table($("t4"), ["Brand", "Headlines reviewed", "Negative", "Neutral", "Positive", "GDELT avg tone (all coverage)"],
+      ORDER.map(b => [NAME(b), R[b].n, Dash.fmtPct(R[b].review.negative), Dash.fmtPct(R[b].review.neutral), Dash.fmtPct(R[b].review.positive), Dash.fmtTone(D.brands[b].totals.avg_tone)]), [1, 2, 3, 4, 5]);
+    $("c4-src").textContent = `About ${R.cava.n + R.dutch_bros.n} sampled headlines, reviewed blind by Claude for sentiment toward the brand. Tone is similar for both: around 11% negative, mainly stock-price falls and analyst downgrades, plus (for Cava) viral \u201csomething in my bowl\u201d posts and a shooting in a restaurant parking lot. GDELT average tone is mildly positive for both (Cava ${Dash.fmtTone(D.brands.cava.totals.avg_tone)}, Dutch Bros ${Dash.fmtTone(D.brands.dutch_bros.totals.avg_tone)}).`;
+  }
+
+  // Head-to-head scorecard. edge: which brand is better placed on this measure.
+  function scorecard() {
+    const RV = D.review, RK = window.RISK, T = { cava: D.brands.cava.totals, dutch_bros: D.brands.dutch_bros.totals };
+    const g = { cava: growth("cava"), dutch_bros: growth("dutch_bros") };
+    const sgn = x => (x > 0 ? "+" : "") + Math.round(x * 100) + "%";
+    const rows = [
+      ["News share of voice", Dash.fmtPct(T.cava.news_sov), Dash.fmtPct(T.dutch_bros.news_sov), "dutch_bros", "Dutch Bros gets more coverage overall."],
+      ["Search share of voice", Dash.fmtPct(T.cava.search_sov), Dash.fmtPct(T.dutch_bros.search_sov), "dutch_bros", "More consumers search for Dutch Bros."],
+      ["Search momentum (Aug–Oct vs Dec–Feb)", sgn(g.cava), sgn(g.dutch_bros), "cava", "Cava is the one gaining consumer interest."],
+      ["Coverage about openings and growth", Dash.fmtPct(share("cava", "Network, routes & growth")), Dash.fmtPct(share("dutch_bros", "Network, routes & growth")), "dutch_bros", "Local outlets treat Dutch Bros openings as news. The biggest gap to close."],
+      ["Coverage about menu and product", Dash.fmtPct(share("cava", "Menu & product")), Dash.fmtPct(share("dutch_bros", "Menu & product")), "cava", "Cava has the product story, but it barely registers in the news."],
+      ["Financial share of coverage", Dash.fmtPct(share("cava", "Financial performance & stock")), Dash.fmtPct(share("dutch_bros", "Financial performance & stock")), "dutch_bros", "Cava's news is more investor-heavy (lower is more consumer-facing)."],
+      ["Negative headlines (review)", Dash.fmtPct(RV.cava.review.negative), Dash.fmtPct(RV.dutch_bros.review.negative), "even", "No difference; tone is not the battleground."],
+      ["Peak weekly risk index", Math.round(RK.brands.cava.peak.rri), Math.round(RK.brands.dutch_bros.peak.rri), "even", `Both stayed below Watch (${Math.round(RK.meta.thresholds.watch)}) all year.`],
+    ];
+    const edge = e => e === "even" ? `<span class="chip normal">Even</span>` : `<span class="chip high" style="color:${Dash.tok(COLOR[e])}">${e === "cava" ? "Cava" : "Dutch Bros"}</span>`;
+    Dash.table($("scorecard"), ["Measure", "Cava", "Dutch Bros", "Edge", "What it means for Cava"],
+      rows.map(r => [Dash.esc(r[0]), r[1], r[2], edge(r[3]), `<span class="small">${Dash.esc(r[4])}</span>`]), [1, 2]);
+  }
+
+  function actionPlan() {
+    const g = growth("cava"), gd = growth("dutch_bros");
+    Dash.actions($("actions"), [
+      { pri: "high", action: "Make every new restaurant a local media event",
+        detail: "A pitch kit for local TV, radio and papers in each opening market: the GM as spokesperson, an opening-day hook, local photos.",
+        evidence: `Openings and growth are ${Dash.fmtPct(share("dutch_bros", "Network, routes & growth"))} of Dutch Bros' coverage and ${Dash.fmtPct(share("cava", "Network, routes & growth"))} of Cava's.`,
+        owner: "PR + Field marketing", when: "From the next opening" },
+      { pri: "high", action: "Take menu launches to consumer and local press",
+        detail: "Treat a major menu launch as a consumer story with tastings and local angles, not as an investor talking point.",
+        evidence: `Menu and product stories are ${Dash.fmtPct(share("cava", "Menu & product"))} of Cava's coverage; financial stories are ${Dash.fmtPct(share("cava", "Financial performance & stock"))}.`,
+        owner: "PR + Brand", when: "Next launch" },
+      { pri: "medium", action: "Ride the search momentum with owned channels",
+        detail: "Rising search interest means people are looking: make sure local pages, maps listings and social answer them.",
+        evidence: `Cava search interest ${g > 0 ? "+" : ""}${Math.round(g * 100)}% (Aug–Oct vs Dec–Feb); Dutch Bros ${gd > 0 ? "+" : ""}${Math.round(gd * 100)}%.`,
+        owner: "Digital marketing", when: "Next 60 days" },
+      { pri: "low", action: "Keep a light reputation watch",
+        detail: "No risk flag this year, but investor stories can turn quickly (Dutch Bros' stock fell 26% in August).",
+        evidence: `Peak weekly risk index: Cava ${Math.round(window.RISK.brands.cava.peak.rri)}, Dutch Bros ${Math.round(window.RISK.brands.dutch_bros.peak.rri)} (Watch starts at ${Math.round(window.RISK.meta.thresholds.watch)}).`,
+        owner: "Insights", when: "Monthly" },
+    ]);
+  }
+
+  function render() {
+    $("k-window").textContent = `${Dash.fmtMonth(D.meta.window[0].slice(0, 7))} – ${Dash.fmtMonth(D.meta.window[1].slice(0, 7))}`;
+    actionPlan(); scorecard(); tiles(); sovChart(); search(); issues(); tone(); }
+  Dash.segmented($("f-measure"), [{ value: "news_sov", label: "News" }, { value: "search_sov", label: "Search" }], measure, v => { measure = v; sovChart(); });
+  ["1", "2", "3", "4"].forEach(n => Dash.tableToggle("t" + n + "-btn", "t" + n));
+  Dash.start(render);
+})();
+</script>
+</body>
+</html>
